@@ -1,0 +1,32 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+    <div id="container" style="min-width: 310px; max-width: 3000px; height: 400px; margin: 0 auto"></div>
+
+    <script>
+        
+        $(function () {
+        // Create the chart
+        $('#container').highcharts({
+
+            title: {
+                text: 'Importaciones/Exportaciones'
+            },
+
+            data: {
+                googleSpreadsheetKey: '1YaFYOD79oEKs12JfzqO3-mww2o5_Cr4eiZIWxWDynaw'
+            },
+            yAxis: {
+                title: {
+                    text: 'Millones de $'
+                }
+            }
+
+        });
+    });
+    </script>
+
+</html>
