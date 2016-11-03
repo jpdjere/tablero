@@ -1,136 +1,382 @@
 <html>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src="https://cdn.rawgit.com/jsoma/tabletop/master/src/tabletop.js"></script>
-<!-- load the d3.js library -->    
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.8/d3.min.js"></script>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="https://cdn.rawgit.com/jsoma/tabletop/master/src/tabletop.js"></script>
+  <!-- load the d3.js library -->    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.8/d3.min.js"></script>
 
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+  <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+  <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/data.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/data.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+  <!-- CSS -->
+  <style>
+    #canvas {
+    }
+
+    #canvas-svg {
+    }
+
+    .line {
+      fill: none;
+    }
+
+    /* Para tabla de imp exp */
+    table {
+        border-collapse: collapse;
+        border: 2px black solid;
+        font: 12px sans-serif;
+    }
+
+    td {
+        border: 1px black solid;
+        padding: 5px;
+    }
+  </style>
+
+</head>
+<body>
+  
+
+
+</body>
 
 
 
-<!-- CSS -->
-<style>
-  #canvas {
-  }
-
-  #canvas-svg {
-  }
-
-  .line {
-    fill: none;
-  }
-
-  /* Para tabla de imp exp */
-  table {
-      border-collapse: collapse;
-      border: 2px black solid;
-      font: 12px sans-serif;
-  }
-
-  td {
-      border: 1px black solid;
-      padding: 5px;
-  }
-</style>
 
 
-<div id="tabla"></div>
+  <script>
+  	
 
-<script>
-	
+    function tabulate(data, columns) {
+        var table = d3.select('#tabla').append('table')
+              .attr('data-role','table')
+              .attr('id','my-table')
+              .attr('class','ui-responsive');
+        var thead = table.append('thead')
+        var tbody = table.append('tbody');
 
-  function tabulate(data, columns) {
-      var table = d3.select('body').append('table')
-      var thead = table.append('thead')
-      var tbody = table.append('tbody');
+        // append the header row
+        thead.append('tr')
+          .selectAll('th')
+          .data(columns).enter()
+          .append('th')
+            .text(function (column) { return column; });
 
-      // append the header row
-      thead.append('tr')
-        .selectAll('th')
-        .data(columns).enter()
-        .append('th')
-          .text(function (column) { return column; });
+        // create a row for each object in the data
+        var rows = tbody.selectAll('tr')
+          .data(data)
+          .enter()
+          .append('tr');
 
-      // create a row for each object in the data
-      var rows = tbody.selectAll('tr')
-        .data(data)
-        .enter()
-        .append('tr');
+        // create a cell in each row for each column
+        var cells = rows.selectAll('td')
+          .data(function (row) {
+            return columns.map(function (column) {
+              return {column: column, value: row[column]};
+            });
+          })
+          .enter()
+          .append('td')
+            .text(function (d) { return d.value; })
+            .attr("style", function (d) {
+              if(d.value === "Exportaciones"){
+                return "color:red";
+              }
+            });
 
-      // create a cell in each row for each column
-      var cells = rows.selectAll('td')
-        .data(function (row) {
-          return columns.map(function (column) {
-            return {column: column, value: row[column]};
-          });
-        })
-        .enter()
-        .append('td')
-          .text(function (d) { return d.value; })
-          .attr("style", function (d) {
-            if(d.value === "Exportaciones"){
-              return "color:red";
-            }
-          });
+        return table;
+    }
 
-      return table;
-  }
+    //var public_spreadsheet_url = '1YaFYOD79oEKs12JfzqO3-mww2o5_Cr4eiZIWxWDynaw'; //Funciona
+    var public_spreadsheet_url = '1RTG-gAu6Yj9qje0c1IoXLSOfCaerx29CZUeLsdWSaOo'; //Funciona
 
-  //var public_spreadsheet_url = '1YaFYOD79oEKs12JfzqO3-mww2o5_Cr4eiZIWxWDynaw'; //Funciona
-  var public_spreadsheet_url = '1RTG-gAu6Yj9qje0c1IoXLSOfCaerx29CZUeLsdWSaOo'; //Funciona
+    function renderSpreadsheetData() {
+      Tabletop.init( { key: public_spreadsheet_url,
+                      debug:true,
+                       callback: draw,
+                       simpleSheet: true } )
+    }
 
-  function renderSpreadsheetData() {
-    Tabletop.init( { key: public_spreadsheet_url,
-                    debug:true,
-                     callback: draw,
-                     simpleSheet: true } )
-  }
+    function draw(data, tabletop) {
+      // draw chart
+      console.log("Funciono");
+      console.log(data);
+      // render the table(s)
+      tabulate(data, ['Indicador', 'Unidad','Periodo','Valor','Variacion i.a.','Variacion2','Periodo2','2016','Var. 16/15']); // 2 column table
+      //tabulate(data, ['Indicador', 'Unidad','Periodo','Valor','Variacion i.a.','Variacion2','Periodo2']); // 2 column table
+    }
 
-  function draw(data, tabletop) {
-    // draw chart
-    console.log("Funciono");
-    console.log(data);
-    // render the table(s)
-    tabulate(data, ['Indicador', 'Unidad','Periodo','Valor','Variacion i.a.','Variacion2','Periodo2','2016','Var. 16/15']); // 2 column table
-    tabulate(data, ['Indicador', 'Unidad','Periodo','Valor','Variacion i.a.','Variacion2','Periodo2']); // 2 column table
-  }
+    renderSpreadsheetData();
+  </script>
 
-  renderSpreadsheetData();
-</script>
-
-<!-- TOGGLER -->
-<div class="row" style="text-align:center;margin-top:50px;margin-bottom:50px">
-  <div class="col-xs-12">
-    <span>Tablero de Variables</span>
-    <span><input id="toggle-one" checked type="checkbox" data-width="100" data-height="35"></span>
-    <span>Datos Históricos</span>
+  <!-- TOGGLER -->
+  <div class="row" style="text-align:center;margin-top:50px;margin-bottom:50px">
+    <div class="col-xs-12">
+      <span>Tablero de Variables</span>
+      <span><input id="toggle-one" checked type="checkbox" data-width="100" data-height="35"></span>
+      <span>Datos Históricos</span>
+    </div>
   </div>
-</div>
+
+  <div id="tablero">
+    <div id="tabla"></div>
+    <table class="ui-responsive" data-role="table" id="my-table">
+            <thead>
+                <tr>
+                    <th>Indicador</th>
+                    <th>Unidad</th>
+                    <th>Periodo</th>
+                    <th>Valor</th>
+                    <th>Variacion i.a.</th>
+                    <th>Variacion2</th>
+                    <th>Periodo2</th>
+                    <th>2016</th>
+                    <th>Var. 16/15</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sector externo</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="color:red">Exportaciones</td>
+                    <td>Millones de US$</td>
+                    <td>ago.-16</td>
+                    <td>5,752</td>
+                    <td>12.0%</td>
+                    <td>p</td>
+                    <td>Acumulado anual</td>
+                    <td>-1.8%</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Exportaciones (cantidades)</td>
+                    <td>Millones de US$</td>
+                    <td>ago.-16</td>
+                    <td>-</td>
+                    <td>12.0%</td>
+                    <td>p</td>
+                    <td>Acumulado anual</td>
+                    <td>6.0%</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Importaciones</td>
+                    <td>Millones de US$</td>
+                    <td>ago.-16</td>
+                    <td>5,047</td>
+                    <td>-7.1%</td>
+                    <td>q</td>
+                    <td>Acumulado anual</td>
+                    <td>-7.6%</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Importaciones (cantidades)</td>
+                    <td>Millones de US$</td>
+                    <td>ago.-16</td>
+                    <td>-</td>
+                    <td>6.7%</td>
+                    <td>p</td>
+                    <td>Acumulado anual</td>
+                    <td>6.2%</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Balanza comercial (1)</td>
+                    <td>Millones de US$</td>
+                    <td>ago.-16</td>
+                    <td>705</td>
+                    <td>1,005</td>
+                    <td>p</td>
+                    <td>Acumulado anual</td>
+                    <td>2,353</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Precio de la Soja</td>
+                    <td>U$S/Ton</td>
+                    <td>sep-16</td>
+                    <td>356</td>
+                    <td>-3.9%</td>
+                    <td>q</td>
+                    <td></td>
+                    <td>1.6%</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Inversión</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>IED</td>
+                    <td>Millones de US$</td>
+                    <td>sep-16</td>
+                    <td>121</td>
+                    <td>323.1%</td>
+                    <td>p</td>
+                    <td>Acumulado anual</td>
+                    <td>77.7%</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Importacion de Bs. De capital</td>
+                    <td>Millones de US$</td>
+                    <td>ago.-16</td>
+                    <td>1,037</td>
+                    <td>14.0%</td>
+                    <td>p</td>
+                    <td></td>
+                    <td>1.5%</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Construcción</td>
+                    <td>Variación anual en %</td>
+                    <td>ago.-16</td>
+                    <td>-</td>
+                    <td>-3.7%</td>
+                    <td>q</td>
+                    <td></td>
+                    <td>-12.8%</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Indice Construya</td>
+                    <td>Variación anual en %</td>
+                    <td>sep-16</td>
+                    <td>-</td>
+                    <td>-17.9%</td>
+                    <td>q</td>
+                    <td></td>
+                    <td>-14.2%</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Inversion (IBIF)</td>
+                    <td>Variación anual en %</td>
+                    <td>II trim16</td>
+                    <td>140,375</td>
+                    <td>-4.9%</td>
+                    <td>q</td>
+                    <td></td>
+                    <td>-4.2%</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>IBIM (OJF)</td>
+                    <td>Variación anual en %</td>
+                    <td>ago.-16</td>
+                    <td>5,578</td>
+                    <td>1.3%</td>
+                    <td>p</td>
+                    <td></td>
+                    <td>-4.5%</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Consumo</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Ventas en supermercados (reales)</td>
+                    <td>Variación anual en %</td>
+                    <td>jul.-16</td>
+                    <td>15,597</td>
+                    <td>-8.8%</td>
+                    <td>q</td>
+                    <td></td>
+                    <td>-6.9%</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Ventas en centros de compras (reales)</td>
+                    <td>Variación anual en %</td>
+                    <td>jul.-16</td>
+                    <td>3,201</td>
+                    <td>-10.1%</td>
+                    <td>q</td>
+                    <td></td>
+                    <td>-7.4%</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Patentamentos (Unidades)</td>
+                    <td>Variación anual en %</td>
+                    <td>sep-16</td>
+                    <td>69,719</td>
+                    <td>5.0%</td>
+                    <td>p</td>
+                    <td></td>
+                    <td>8.5%</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Recaudacion de IVA deflactado</td>
+                    <td>Variación anual en %</td>
+                    <td>ago.-16</td>
+                    <td>50,845,589</td>
+                    <td>-10.3%</td>
+                    <td>q</td>
+                    <td></td>
+                    <td>-3.4%</td>
+                    <td></td>
+                </tr>
+   
+            </tbody>
+    </table>
+
+  </div>
+  <!-- pestania 2: TABLERO via iframe-->
+  <!--   
+    <div id="tablero" style="margin: 0 auto;margin-left:50px;">
+      <iframe style="width:1090px;height:1200px" src="https://docs.google.com/spreadsheets/d/1M0PxJ6WaXHCf8gQ6aCj12pwc9XTk9ulBP8W4Jxwlhl8/pubhtml?widget=true&amp;headers=false&amp;chrome=false"></iframe>
+    </div> 
+
+  -->
 
 
-<!-- pestania 2: TABLERO -->
-<div id="tablero" style="margin: 0 auto;margin-left:50px;">
-  <iframe style="width:1090px;height:1200px" src="https://docs.google.com/spreadsheets/d/1M0PxJ6WaXHCf8gQ6aCj12pwc9XTk9ulBP8W4Jxwlhl8/pubhtml?widget=true&amp;headers=false&amp;chrome=false"></iframe>
-</div>
 
-
-
-<!-- pestania 2: DATOS HISTORICOS -->
-<div class="row" id="graficos" style="display:none;">
-  <div class="col-xs-12 col-md-8" id="container" style="margin: 0 auto;"></div>
-  <div class="col-xs-12 col-md-4" id="datos-impexp" style="margin: 0 auto;"></div>
-</div>
+  <!-- pestania 2: DATOS HISTORICOS -->
+  <div class="row" id="graficos" style="display:none;">
+    <div class="col-xs-12 col-md-8" id="container" style="margin: 0 auto;"></div>
+    <div class="col-xs-12 col-md-4" id="datos-impexp" style="margin: 0 auto;"></div>
+  </div>
 
 
 
@@ -195,5 +441,6 @@
             .text(function(d) { return d; });
   });
 </script>
-
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
 </html>
