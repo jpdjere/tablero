@@ -29,6 +29,9 @@ function draw(data, tabletop) {
 
   }
 
+  buildSeries();
+  drawCharts();
+
 }
 
 renderSpreadsheetData();
