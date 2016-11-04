@@ -39,7 +39,18 @@
     console.log("Funciono");
     console.log(data);
     // render the table(s)
-    tabulate(data, ['date', 'exportaciones','importaciones']); // 2 column table
+    //tabulate(data, ['date', 'exportaciones','importaciones']); // 2 column table
+
+    var date = [];
+    var exp = [];
+    var imp = [];
+
+    for(var i = 0;i<temp1.length;i++){
+      date.push(temp1[i].date);
+      exp.push(temp1[i].exportaciones);
+      imp.push(temp1[i].importaciones);
+
+    }
 
   }
 
