@@ -20,9 +20,9 @@ function draw(data, tabletop) {
 
       
   for(var i = 0;i<data.length;i++){
-    date.push(temp1[i].date);
-    exp.push(temp1[i].exportaciones);
-    imp.push(temp1[i].importaciones);
+    date.push(data[i].date);
+    exp.push(data[i].exportaciones);
+    imp.push(data[i].importaciones);
 
   }
 
