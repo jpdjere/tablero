@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Highstock</title>
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<style type="text/css">
+${demo.css}
+		</style>
+
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="series.js"></script>
+
+
+		<script type="text/javascript">
+		xData = [0.001567,0.011765,0.022194,0.032316,0.04266,0.063668,0.074477,0.085323,0.09576,0.106078,0.116096];
+		datasets = [{
+				"name": "SERIE",
+				"data": [13.833,12.524,11.441,10.651,9.961,4.566,4.617,4.728,4.823,4.844,4.856,4.87,4.702,4.679,4.674],
+				"unit": "$$$",
+				"type": "area",
+				"valueDecimals": 2
+		}, {
+				"name": "COLUMNA",
+				"data": [26.857,-27,27.111,27.2,27.272,30.545,32.181,-33.818,35.272,36.545,37.818,41.818,44.545,47.272,1,2,3,-1,-2,-3],
+				"unit": "%",
+				"type": "column",
+				"valueDecimals": 2
+		}];
+
+
+		</script>
+	</head>
+	<body>
+<div id="container" style="height: 400px; min-width: 310px"></div>
+<div id="container2" style="height: 400px; min-width: 310px"></div>
+	</body>
+	<script>
+		Highcharts.chart('container',{
+			series: datasets.splice(0,1),
+			exporting: { enabled: false },
+			chart: {
+                //zoomType: 'x'
+            },
+			xAxis: {
+								data: xData,
+                type: 'datetime'
+            }
+
+		});
+
+		Highcharts.chart('container2',{
+			series: datasets,
+			exporting: { enabled: false },
+			chart: {
+                //zoomType: 'x'
+            },
+			xAxis: {
+								data: xData,
+                type: 'datetime'
+            }
+
+		});
+	</script>
+</html>
