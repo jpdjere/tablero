@@ -18,11 +18,11 @@ function draw(data, tabletop) {
   // render the table(s)
   //tabulate(data, ['date', 'exportaciones','importaciones']); // 2 column table
 
-      
+
   for(var i = 0;i<data.length;i++){
     date.push(data[i].date);
-    exp.push(data[i].exportaciones);
-    imp.push(data[i].importaciones);
+    exp.push(parseFloat(data[i].exportaciones));
+    imp.push(parseFloat(data[i].importaciones));
 
   }
 
