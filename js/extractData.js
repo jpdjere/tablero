@@ -1,7 +1,10 @@
 var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/11P1uupLHALlVtTXUAOm_MJclPvYGx5PX_AgjSsJiPKg/pubhtml'; //Funciona
 
 var date = [];
-var series = {date:[], exportaciones:[], exportaciones_var:[], importaciones:[],  reservas:[], precio_soja:[], indice_construya:[], actividad:[], actividad_desest:[]};
+var series = {date:[], exportaciones:[], exportaciones_var:[], importaciones:[], importaciones_var:[], balance:[],
+              reservas:[], reservas_var:[], actividad:[], actividad_desest:[], actividad_var:[],
+              precio_soja:[], precio_soja_var:[], indice_construya:[], indice_construya_var:[]
+              };
 
 
 function renderSpreadsheetData() {
