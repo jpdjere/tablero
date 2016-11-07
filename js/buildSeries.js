@@ -1,14 +1,14 @@
 function buildSeries(){
 
 datasets = [{
-    "name": "SERIE",
+    "name": "Reservas",
     "data": combinedArray,
     "unit": "$$$",
     "type": "area",
     "valueDecimals": 2
 }];
 serie1 = [{
-    "name": "SERIE",
+    "name": "Variación",
     "data": combinedArray,
     "unit": "$$$",
     "type": "column",
