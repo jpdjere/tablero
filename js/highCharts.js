@@ -1,4 +1,4 @@
-function drawCharts(dataset, dataset_var, yAxis){
+function drawCharts(dataset, dataset_var, chartTitle, yAxis, yColumns){
   Highcharts.setOptions({
 	lang: {
 		months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',  'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
@@ -16,7 +16,7 @@ function drawCharts(dataset, dataset_var, yAxis){
               }
         },
     title: {
-              //text: 'Datos históricos'
+              text: chartTitle
             },
     xAxis: {
             type: 'datetime'
@@ -38,11 +38,11 @@ function drawCharts(dataset, dataset_var, yAxis){
     exporting: { enabled: false },
     credits: { enabled: true,
               text: "Ministerio de Producción y Desarrollo",
-              href: "http://www.produccion.gob.ar"},
+              href: false},
     yAxis: {
             	title: {
                 enabled: true,
-                text: 'Variación anual [%]'}
+                text: yColumns}
         },
     title: {
               enabled: false,

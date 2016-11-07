@@ -64,6 +64,7 @@ dataConstruya_var = [{
     "type": "column",
     "valueDecimals": 2
 }];
+
 //ACTIVIDAD
 dataActividad = [{
     name: "Actividad",
@@ -76,15 +77,38 @@ dataActividad = [{
     data: series.actividad_desest,
     type: "line",
     lineWidth: 1,
-    marker: false,
+    marker: {radius: 0},
     valueDecimals: 2
 }
 
 ];
-dataReservas_var = [{
+dataActividad_var = [{
     name: "Variación anual",
-    data: series.reservas_var,
+    data: series.actividad_var,
     type: "column",
     valueDecimals: 2
 }];
+
+//EXPvsIMP
+dataBalance = [{
+    name: "Exportaciones",
+    data: series.exportaciones,
+    type: "line",
+    valueDecimals: 2
+},
+{
+    name: "Importaciones",
+    data: series.importaciones,
+    type: "line",
+    valueDecimals: 2
+}
+
+];
+dataBalance_var = [{
+    name: "Variación anual",
+    data: series.balance,
+    type: "column",
+    valueDecimals: 2
+}];
+
 }
