@@ -23,7 +23,7 @@ function draw(data, tabletop) {
   for(var i = 0;i<data.length;i++){
     date.push(data[i].date);
     tempDate = data[i].date.split("/");
-    combinedArray.push([Date.UTC(tempDate[2], tempDate[1], tempDate[0]), parseFloat(data[i].exportaciones)]);
+    combinedArray.push([Date.UTC(tempDate[2], tempDate[1], tempDate[0]), parseFloat(data[i]['Precio de la soja'])]);
     exp.push(parseFloat(data[i].exportaciones));
     imp.push(parseFloat(data[i].importaciones));
 
