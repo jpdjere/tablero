@@ -1,13 +1,22 @@
-function drawCharts(){
+function drawCharts(dataset, dataset_var, yAxis){
+  Highcharts.setOptions({
+	lang: {
+		months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',  'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+    shortMonths: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun',  'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
+	}
+});
+
+
   Highcharts.chart('container1',{
-    series: datasets,
+    series: dataset,
     yAxis: {
               title: {
                 enabled: true,
-                text: 'Miles de USD'}
+                text: yAxis
+              }
         },
     title: {
-              text: 'RESERVAS'
+              //text: 'Datos históricos'
             },
     xAxis: {
             type: 'datetime'
@@ -25,7 +34,7 @@ function drawCharts(){
     legend: {
             enabled: false
     },
-    series: serie1,
+    series: dataset_var,
     exporting: { enabled: false },
     credits: { enabled: true,
               text: "Ministerio de Producción y Desarrollo",
@@ -42,221 +51,6 @@ function drawCharts(){
   });
 };
 
-function drawReservas(){
-  Highcharts.chart('container1',{
-    series: series.reservas,
-    yAxis: {
-              title: {
-                enabled: true,
-                text: 'Miles de USD'}
-        },
-    title: {
-              text: 'Resrvas'
-            },
-    xAxis: {
-            type: 'datetime'
-        },
-    legend: {
-            enabled: false
-    },
-    exporting: { enabled: false },
-    credits: { enabled: false }
-  });
-  Highcharts.chart('container2',{
-    xAxis: {
-            type: 'datetime'
-        },
-    legend: {
-            enabled: false
-    },
-    series: series.reservas_var,
-    exporting: { enabled: false },
-    credits: { enabled: true,
-              text: "Ministerio de Producción y Desarrollo",
-              href: "http://www.produccion.gob.ar"},
-    yAxis: {
-            	title: {
-                enabled: true,
-                text: 'Variación anual [%]'}
-        },
-    title: {
-              enabled: false,
-              text: ''
-            },
-  });
-};
-function drawExportaciones(){
-  Highcharts.chart('container1',{
-    series: series.exportaciones,
-    yAxis: {
-              title: {
-                enabled: true,
-                text: 'Miles de USD'}
-        },
-    title: {
-              text: 'Exportaciones'
-            },
-    xAxis: {
-            type: 'datetime'
-        },
-    legend: {
-            enabled: false
-    },
-    exporting: { enabled: false },
-    credits: { enabled: false }
-  });
-  Highcharts.chart('container2',{
-    xAxis: {
-            type: 'datetime'
-        },
-    legend: {
-            enabled: false
-    },
-    series: series.exportaciones_var,
-    exporting: { enabled: false },
-    credits: { enabled: true,
-              text: "Ministerio de Producción y Desarrollo",
-              href: "http://www.produccion.gob.ar"},
-    yAxis: {
-            	title: {
-                enabled: true,
-                text: 'Variación anual [%]'}
-        },
-    title: {
-              enabled: false,
-              text: ''
-            },
-  });
-};
-function drawImportaciones(){
-  Highcharts.chart('container1',{
-    series: series.importaciones,
-    yAxis: {
-              title: {
-                enabled: true,
-                text: 'Miles de USD'}
-        },
-    title: {
-              text: 'Importaciones'
-            },
-    xAxis: {
-            type: 'datetime'
-        },
-    legend: {
-            enabled: false
-    },
-    exporting: { enabled: false },
-    credits: { enabled: false }
-  });
-  Highcharts.chart('container2',{
-    xAxis: {
-            type: 'datetime'
-        },
-    legend: {
-            enabled: false
-    },
-    series: series.importaciones_var,
-    exporting: { enabled: false },
-    credits: { enabled: true,
-              text: "Ministerio de Producción y Desarrollo",
-              href: "http://www.produccion.gob.ar"},
-    yAxis: {
-            	title: {
-                enabled: true,
-                text: 'Variación anual [%]'}
-        },
-    title: {
-              enabled: false,
-              text: ''
-            },
-  });
-};
-function drawSoja(){
-  Highcharts.chart('container1',{
-    series: series.precio_soja,
-    yAxis: {
-              title: {
-                enabled: true,
-                text: 'USD por Tn'}
-        },
-    title: {
-              text: 'Precio de la Soja'
-            },
-    xAxis: {
-            type: 'datetime'
-        },
-    legend: {
-            enabled: false
-    },
-    exporting: { enabled: false },
-    credits: { enabled: false }
-  });
-  Highcharts.chart('container2',{
-    xAxis: {
-            type: 'datetime'
-        },
-    legend: {
-            enabled: false
-    },
-    series: series.precio_soja_var,
-    exporting: { enabled: false },
-    credits: { enabled: true,
-              text: "Ministerio de Producción y Desarrollo",
-              href: "http://www.produccion.gob.ar"},
-    yAxis: {
-            	title: {
-                enabled: true,
-                text: 'Variación anual [%]'}
-        },
-    title: {
-              enabled: false,
-              text: ''
-            },
-  });
-};
-function drawConstruya(){
-  Highcharts.chart('container1',{
-    series: series.indice_construya,
-    yAxis: {
-              title: {
-                enabled: true,
-                text: 'Índice base Enero 2015 = 100'}
-        },
-    title: {
-              text: 'Índice Construya'
-            },
-    xAxis: {
-            type: 'datetime'
-        },
-    legend: {
-            enabled: false
-    },
-    exporting: { enabled: false },
-    credits: { enabled: false }
-  });
-  Highcharts.chart('container2',{
-    xAxis: {
-            type: 'datetime'
-        },
-    legend: {
-            enabled: false
-    },
-    series: series.indice_construya_var,
-    exporting: { enabled: false },
-    credits: { enabled: true,
-              text: "Ministerio de Producción y Desarrollo",
-              href: "http://www.produccion.gob.ar"},
-    yAxis: {
-            	title: {
-                enabled: true,
-                text: 'Variación anual [%]'}
-        },
-    title: {
-              enabled: false,
-              text: ''
-            },
-  });
-};
 function drawActividad(){
   Highcharts.chart('container1',{
     series: series.actividad,

@@ -19,7 +19,7 @@ function draw(data, tabletop) {
 
   for(var i = 0;i<data.length;i++){
     Object.keys(data[i]).forEach(function(key,index) {
-      
+
       date.push(data[i].date);
       tempDate = data[i].date.split("/");
 
@@ -31,11 +31,8 @@ function draw(data, tabletop) {
   }
 
   buildSeries();
-  drawCharts();
+  drawCharts(dataExportaciones, dataExportaciones_var, 'Miles de USD');
 
 }
 
 renderSpreadsheetData();
-
-
-
