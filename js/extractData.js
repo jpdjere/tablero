@@ -1,6 +1,6 @@
 var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/11P1uupLHALlVtTXUAOm_MJclPvYGx5PX_AgjSsJiPKg/pubhtml'; //Funciona
 
-
+var date = [];
 var series = {date:[], exportaciones:[], exportaciones_var:[], importaciones:[],  reservas:[], precio_soja:[], indice_construya:[], actividad:[], actividad_desest:[]};
 
 
@@ -23,7 +23,7 @@ function draw(data, tabletop) {
       date.push(data[i].date);
       tempDate = data[i].date.split("/");
 
-      if(data[0][key] !== "0"){
+      if(data[i][key] != false){
         series[key].push([Date.UTC(tempDate[2], tempDate[1], tempDate[0]), parseFloat(data[i][key])]);
       };
 
