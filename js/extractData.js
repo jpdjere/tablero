@@ -14,7 +14,7 @@ function renderSpreadsheetData() {
 
 function draw(data, tabletop) {
   // draw chart
-  console.log("Funciono");
+  console.log("Data:");
   console.log(data);
   // render the table(s)
   //tabulate(data, ['date', 'exportaciones','importaciones']); // 2 column table
@@ -28,7 +28,8 @@ function draw(data, tabletop) {
     imp.push(parseFloat(data[i].importaciones));
 
   }
-
+  console.log("combinedArray:");
+  console.log(combinedArray);
   buildSeries();
   drawCharts();
 
