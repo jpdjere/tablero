@@ -1,6 +1,6 @@
 function buildSeries(){
 
-var datasets = [{
+datasets = [{
     "name": "SERIE",
     "data": combinedArray,
     "unit": "$$$",
