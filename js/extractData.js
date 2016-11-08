@@ -2,9 +2,14 @@ var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/11P1uupLHAL
 
 var date = [];
 var series = {date:[], exportaciones:[], exportaciones_var:[], importaciones:[], importaciones_var:[], balance:[],
-              reservas:[], reservas_var:[], actividad:[], actividad_desest:[], actividad_var:[],
+              reservas:[], reservas_var:[], actividad:[], actividad_var:[],  actividad_desest:[],actividad_desest_var:[],
               precio_soja:[], precio_soja_var:[], indice_construya:[], indice_construya_var:[]
               };
+
+//No alterar el ordern
+var checkColumns = ['exportaciones','exportaciones_var','importaciones','importaciones_var',
+          'reservas','reservas_var','actividad','actividad_var', 'actividad_desest','actividad_desest_var',
+          'precio_soja','precio_soja_var','indice_construya','indice_construya_var'];
 
 
 function renderSpreadsheetData() {
@@ -25,10 +30,28 @@ function draw(data, tabletop) {
 
       date.push(data[i].date);
       tempDate = data[i].date.split("/");
+      dateUTC = Date.UTC(tempDate[2], tempDate[1], tempDate[0]);
 
-      if(data[i][key] != false){
-        series[key].push([Date.UTC(tempDate[2], tempDate[1], tempDate[0]), parseFloat(data[i][key])]);
-      };
+      //Chequeo si es par. Par es nominal, impar es VAR
+      if(jQuery.inArray(key,checkColumns) % 2 === 0){
+        if(data[i][key] != false){
+          series[key].push([dateUTC, parseFloat(data[i][key])]);
+          //busco el Key de la variable en var sumando 1
+          complementaryKey = checkColumns[jQuery.inArray(key,checkColumns)+1];
+          console.log("complementaryKey");
+          console.log(complementaryKey);
+          //agrego ese dato si hay data, si no, agrego un NaN (para que highcharts tome la fecha pero no grafique)
+          if(data[i][complementaryKey] != false){
+            series[complementaryKey].push([dateUTC, parseFloat(data[i][complementaryKey])]);
+          }else{
+            series[complementaryKey].push([dateUTC, NaN]);
+          }
+        }else{
+          //No cargo data para Nominal ni Var
+        };
+
+      }
+
 
     });
   }
