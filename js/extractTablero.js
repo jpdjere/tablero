@@ -26,10 +26,9 @@ function draw(dataTablero, tabletop) {
 	console.log(dataTablero);
 	// render the table(s)
 
-	var table = d3.select('body').append('table');
-	var tr = table.selectAll('tr')
-	  .data(dataTablero).enter()
-	  .append('tr');
+	
+	var tr = d3.select('#sectorExterno')
+	  .data(dataTablero).enter();
 
 	tr.append('td').html(function(d) { return d.indicador; });
 	tr.append('td').html(function(d) { return d.valor; });
