@@ -3,11 +3,13 @@ function drawCharts(dataset, dataset_var, chartTitle, yAxis, yColumns){
 	lang: {
 		months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',  'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
     shortMonths: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun',  'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
-	}
+	},
+  chart: {
+  }
 });
 
 
-  Highcharts.chart('container1',{
+  Highcharts.chart('chart1',{
     series: dataset,
     yAxis: {
               title: {
@@ -27,7 +29,7 @@ function drawCharts(dataset, dataset_var, chartTitle, yAxis, yColumns){
     exporting: { enabled: false },
     credits: { enabled: false }
   });
-  Highcharts.chart('container2',{
+  Highcharts.chart('chart2',{
     xAxis: {
             type: 'datetime'
         },

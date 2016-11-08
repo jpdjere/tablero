@@ -67,7 +67,7 @@ body {
 }
 
 a {
-  color: #9acd91;
+  color: #7CB5EC;
   text-decoration: none;
 }
 
@@ -86,8 +86,8 @@ Stretchy Nav style - common to:
 .cd-stretchy-nav {
   position: fixed;
   z-index: 2;
-  top: 40px;
-  right: 5%;
+  top: 20px;
+  right: 20px;
   pointer-events: none;
 }
 .cd-stretchy-nav .stretchy-nav-bg {
@@ -99,7 +99,7 @@ Stretchy Nav style - common to:
   width: 60px;
   height: 60px;
   border-radius: 30px;
-  background: #9acd91;
+  background: #7CB5EC;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   -webkit-transition: height 0.2s, box-shadow 0.2s;
   -moz-transition: height 0.2s, box-shadow 0.2s;
@@ -246,7 +246,7 @@ Stretchy Nav style - common to:
   -ms-transform: translateX(3px) translateY(-50%) scaleY(0);
   -o-transform: translateX(3px) translateY(-50%) scaleY(0);
   transform: translateX(3px) translateY(-50%) scaleY(0);
-  background-color: #0a9581;
+  background-color: #A8D5FF;
 }
 .cd-stretchy-nav ul li:first-of-type a::after {
   /* change custom icon using image sprites */

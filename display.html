@@ -5,10 +5,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+	<link rel="stylesheet" href="css/strechy.css"> <!-- Strechy menu style -->
+	<link rel="stylesheet" href="css/charts.css"> <!-- Charts style -->
 	<script src="js/modernizr.js"></script> <!-- Modernizr -->
-
-	<title>Stretchy Navigation | CodyHouse</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script src="https://cdn.rawgit.com/jsoma/tabletop/master/src/tabletop.js"></script>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script type="text/javascript" src="js/highCharts.js"></script>
+	<script type="text/javascript" src="js/buildSeries.js"></script>
+	<script type="text/javascript" src="js/extractData.js"></script>
+	<style type="text/css">
+${demo.css}
+	</style>
+	<title>Tablero Industrial</title>
 </head>
 <body>
 <header>
@@ -34,11 +43,18 @@
 </header>
 
 <main class="cd-main-content">
+
+<div id="pantalla">$nbsp;</div>
 	<!-- main content here -->
+<h1>Tablero de Control Industrial</h1>
+<div id="chartContainer">
+	<div id="chart1" class="chart" ></div>
+	<div id="chart2" class="chart" ></div>
+</div>
 </main>
 
 
-<script src="js/jquery-2.1.4.js"></script>
-<script src="js/main.js"></script> <!-- Resource jQuery -->
+<!--script src="js/jquery-2.1.4.js"></script-->
+<script src="js/strechy.js"></script> <!-- Resource jQuery -->
 </body>
 </html>
