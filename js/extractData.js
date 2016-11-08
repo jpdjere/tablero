@@ -15,8 +15,8 @@ var checkColumns = ['exportaciones','exportaciones_var','importaciones','importa
 function renderSpreadsheetData() {
   Tabletop.init( { key: public_spreadsheet_url,
                   debug:true,
-                   callback: draw,
-                   simpleSheet: true } )
+                  callback: draw,
+                  simpleSheet: true } )
 }
 
 function draw(data, tabletop) {
