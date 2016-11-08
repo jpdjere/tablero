@@ -49,7 +49,7 @@ function drawCharts(dataset, dataset_var, chartTitle, yAxis, yColumns){
     title: {
               enabled: false,
               text: ''
-            },
+            }
   });
 };
 

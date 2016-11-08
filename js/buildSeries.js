@@ -10,59 +10,64 @@ dataReservas_var = [{
     name: "Variación anual",
     data: series.reservas_var,
     type: "column",
-    valueDecimals: 2
+    valueDecimals: 2,
+    tooltip: {valueSuffix: '%'}
 }];
 //EXPORTACIONES
 dataExportaciones = [{
     name: "Exportaciones",
     data: series.exportaciones,
-    "type": "area",
-    "valueDecimals": 2
+    type: "area",
+    valueDecimals: 2
 }];
 dataExportaciones_var = [{
-    "name": "Variación anual",
-    "data": series.exportaciones_var,
-    "type": "column",
-    "valueDecimals": 2
+    name: "Variación anual",
+    data: series.exportaciones_var,
+    type: "column",
+    valueDecimals: 2,
+    tooltip: {valueSuffix: '%'}
 }];
 //IMPORTACIONES
 dataImportaciones = [{
-    "name": "Importaciones",
-    "data": series.importaciones,
-    "type": "area",
-    "valueDecimals": 2
+    name: "Importaciones",
+    data: series.importaciones,
+    type: "area",
+    valueDecimals: 2,
+    tooltip: {valueSuffix: '%'}
 }];
 dataImportaciones_var = [{
-    "name": "Variación anual",
-    "data": series.importaciones_var,
-    "type": "column",
-    "valueDecimals": 2
+    name: "Variación anual",
+    data: series.importaciones_var,
+    type: "column",
+    valueDecimals: 2
 }];
 //PRECIO DE LA SOJA
 dataSoja = [{
-    "name": "Precio de la Soja",
-    "data": series.precio_soja,
-    "type": "area",
-    "valueDecimals": 2
+    name: "Precio de la Soja",
+    data: series.precio_soja,
+    type: "area",
+    valueDecimals: 2
 }];
 dataSoja_var = [{
-    "name": "Variación anual",
-    "data": series.precio_soja_var,
-    "type": "column",
-    "valueDecimals": 2
+    name: "Variación anual",
+    data: series.precio_soja_var,
+    type: "column",
+    valueDecimals: 2,
+    tooltip: {valueSuffix: '%'}
 }];
 //INDICE CONSTRUYA
 dataConstruya = [{
-    "name": "Importaciones",
-    "data": series.indice_construya,
-    "type": "area",
-    "valueDecimals": 2
+    name: "Importaciones",
+    data: series.indice_construya,
+    type: "area",
+    valueDecimals: 2
 }];
 dataConstruya_var = [{
-    "name": "Variación anual",
-    "data": series.indice_construya_var,
-    "type": "column",
-    "valueDecimals": 2
+    name: "Variación anual",
+    data: series.indice_construya_var,
+    type: "column",
+    valueDecimals: 2,
+    tooltip: {valueSuffix: '%'}
 }];
 
 //ACTIVIDAD
@@ -86,7 +91,8 @@ dataActividad_var = [{
     name: "Variación anual",
     data: series.actividad_var,
     type: "column",
-    valueDecimals: 2
+    valueDecimals: 2,
+    tooltip: {valueSuffix: '%'}
 }];
 
 //EXPvsIMP
@@ -109,7 +115,9 @@ dataBalance_var = [{
     data: series.balance,
     type: "column",
     valueDecimals: 2,
-    negativeColor: '#FF5A5F'
+    negativeColor: '#FF5A5F',
+    tooltip: {valuePrefix: '$',
+              valueSuffix: 'USD'}
 }];
 
 }
