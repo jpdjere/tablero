@@ -38,7 +38,7 @@ function drawCharts(dataset, dataset_var, chartTitle, yAxis, yColumns){
     },
     series: dataset_var,
     exporting: { enabled: false },
-    credits: { enabled: true,
+    credits: { enabled: false,
               text: "Ministerio de Producción y Desarrollo",
               href: false},
     yAxis: {

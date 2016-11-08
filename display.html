@@ -28,14 +28,14 @@ ${demo.css}
 		</a>
 
 		<ul>
-			<li><a href="#0" class="active"><span>Tablero</span></a></li>
-			<li><a href="#0"><span>Reservas</span></a></li>
-			<li><a href="#0"><span>Exportaciones</span></a></li>
-			<li><a href="#0"><span>Importaciones</span></a></li>
-			<li><a href="#0"><span>Balance</span></a></li>
-			<li><a href="#0"><span>Actividad</span></a></li>
-			<li><a href="#0"><span>Precio de la Soja</span></a></li>
-			<li><a href="#0"><span>Índice Construya</span></a></li>
+			<li><a href="#" class="strechyLink active"><span>Tablero</span></a></li>
+			<li><a href="#" class="strechyLink" onclick="javascript:drawCharts(dataReservas, dataReservas_var, 'Reservas','Miles de USD', 'Variación anual [%]')"><span>Reservas</span></a></li>
+			<li><a href="#" class="strechyLink" onclick="javascript:drawCharts(dataExportaciones, dataExportaciones_var, 'Exportaciones','Miles de USD', 'Variación anual [%]')"><span>Exportaciones</span></a></li>
+			<li><a href="#" class="strechyLink" onclick="javascript:drawCharts(dataImportaciones, dataImportaciones_var, 'Importaciones','Miles de USD', 'Variación anual [%]')"><span>Importaciones</span></a></li>
+			<li><a href="#" class="strechyLink" onclick="javascript:drawCharts(dataBalance, dataBalance_var, 'Balance','Miles de USD', 'Balance')"><span>Balance</span></a></li>
+			<li><a href="#" class="strechyLink" onclick="javascript:drawCharts(dataActividad, dataActividad_var, 'Actividad','Índice base 2004 = 100', 'Variación anual [%]')"><span>Actividad</span></a></li>
+			<li><a href="#" class="strechyLink" onclick="javascript:drawCharts(dataSoja, dataSoja_var, 'Precio de la Soja','USD por Tn', 'Variación anual [%]')"><span>Precio de la Soja</span></a></li>
+			<li><a href="#" class="strechyLink" onclick="javascript:drawCharts(dataConstruya, dataConstruya_var, 'Índice Construya','Índice base Enero 2015 = 100', 'Variación anual [%]')"><span>Índice Construya</span></a></li>
 		</ul>
 
 		<span aria-hidden="true" class="stretchy-nav-bg"></span>

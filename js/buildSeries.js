@@ -108,7 +108,8 @@ dataBalance_var = [{
     name: "Variación anual",
     data: series.balance,
     type: "column",
-    valueDecimals: 2
+    valueDecimals: 2,
+    negativeColor: '#FF5A5F'
 }];
 
 }
