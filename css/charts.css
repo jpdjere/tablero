@@ -9,14 +9,14 @@ h1, h2, tspan, text, a {
 }
 #chartContainer {
     width: 40% !important;
-    margin: auto;
+    margin: 0 10px;
     box-shadow: 0 0 20px -5px #000;
     display: inline-block;
 }
 #ultimosDatosContainer {
   width: 30%;
   height: 600px;
-  margin: 0 20px;
+  margin: 0 10px;
   display: inline-block;
   background-color: #fff;
   box-shadow: 0 0 20px -5px #000;
@@ -36,6 +36,9 @@ h1, h2, tspan, text, a {
     transition: ease all 0.5s;
     pointer-events: none;
 }
+.cd-main-content{
+  background-image: url(../img/background.png);
+}
 .pantalla-visible {
     //display: block !important;
     opacity: 0.8 !important;
@@ -45,6 +48,10 @@ h1, h2, tspan, text, a {
   min-width: 310px;
   width: 100%;
   background-color: #fafafa;
+}
+.highcharts-title {
+  font-size: 25px !important;
+  font-weight: bold;
 }
 #header{
   position: fixed;
@@ -56,6 +63,7 @@ h1, h2, tspan, text, a {
   z-index: 1;
   box-shadow: 0 0 20px -5px #000;
   display: inline-block;
+  user-select: none !important;
 }
 .logoMinisterio {
   height: 100%;

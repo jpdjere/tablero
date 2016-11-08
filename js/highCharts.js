@@ -27,7 +27,18 @@ function drawCharts(dataset, dataset_var, chartTitle, yAxis, yColumns){
             enabled: false
     },
     exporting: { enabled: false },
-    credits: { enabled: false }
+    credits: { enabled: false },
+    plotOptions: {
+                area: {
+                    fillColor: {
+                        linearGradient: { x1: 0, y1: 1, x2: 0, y2: 0},
+                        stops: [
+                            [0, '#fff'],
+                            [1, '#7CB5EC']
+                        ]
+                    }
+                  }
+                }
   });
   Highcharts.chart('chart2',{
     xAxis: {
