@@ -1,6 +1,26 @@
-#chartContainer {
-    max-width: 40% !important;
+@import url('https://fonts.googleapis.com/css?family=Roboto|Ubuntu');
+
+h1, h2, tspan, text, a {
+  font-family: Ubuntu;
+}
+#mainContainer {
     margin: auto;
+    text-align: center;
+}
+#chartContainer {
+    width: 40% !important;
+    margin: auto;
+    box-shadow: 0 0 20px -5px #000;
+    display: inline-block;
+}
+#ultimosDatosContainer {
+  width: 30%;
+  height: 600px;
+  margin: 0 20px;
+  display: inline-block;
+  background-color: #fff;
+  box-shadow: 0 0 20px -5px #000;
+  vertical-align: baseline;
 }
 #pantalla {
     opacity: 0;
@@ -24,4 +44,31 @@
   height: 300px;
   min-width: 310px;
   width: 100%;
+  background-color: #fafafa;
+}
+#header{
+  position: fixed;
+  height: 100px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #0397C8;
+  z-index: 1;
+  box-shadow: 0 0 20px -5px #000;
+  display: inline-block;
+}
+.logoMinisterio {
+  height: 100%;
+  padding: 20px;
+  display: inline-block;
+  background: #fff;
+}
+.tituloTablero {
+  display: inline-block;
+  color: #fff;
+  vertical-align: top;
+  padding: 20px;
+}
+.tituloTablero > h1,h2{
+  margin: 0;
 }
