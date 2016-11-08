@@ -9,7 +9,7 @@ var series = {date:[], exportaciones:[], exportaciones_var:[], importaciones:[],
 //No alterar el ordern
 var checkColumns = ['exportaciones','exportaciones_var','importaciones','importaciones_var',
           'reservas','reservas_var','actividad','actividad_var', 'actividad_desest','actividad_desest_var',
-          'precio_soja','precio_soja_var','indice_construya','indice_construya_var'];
+          'precio_soja','precio_soja_var','indice_construya','indice_construya_var','balance'];
 
 
 function renderSpreadsheetData() {
@@ -38,14 +38,18 @@ function draw(data, tabletop) {
           series[key].push([dateUTC, parseFloat(data[i][key])]);
           //busco el Key de la variable en var sumando 1
           complementaryKey = checkColumns[jQuery.inArray(key,checkColumns)+1];
-          console.log("complementaryKey");
-          console.log(complementaryKey);
+
           //agrego ese dato si hay data, si no, agrego un NaN (para que highcharts tome la fecha pero no grafique)
-          if(data[i][complementaryKey] != false){
-            series[complementaryKey].push([dateUTC, parseFloat(data[i][complementaryKey])]);
-          }else{
-            series[complementaryKey].push([dateUTC, NaN]);
+          try { //agrego un try porque en el caso de Balance, el key+1 da out of bounds
+            if(data[i][complementaryKey] != false){
+              series[complementaryKey].push([dateUTC, parseFloat(data[i][complementaryKey])]);
+            }else{
+              series[complementaryKey].push([dateUTC, NaN]);
+            }
+          }catch(err) {
+              console.log(err.message);
           }
+
         }else{
           //No cargo data para Nominal ni Var
         };
