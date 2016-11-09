@@ -35,3 +35,14 @@ tbody td{
 	font-family: Ubuntu;
 	font-size:22px;
 }
+
+.innerTable tr td:first-child{
+	font-weight: bold;
+	width:350px;
+
+}
+.innerTable tr td:nth-child(2){
+	
+	width:100px;
+
+}
