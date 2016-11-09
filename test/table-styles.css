@@ -1,0 +1,37 @@
+tr{
+	width:800px;
+}
+td{
+
+	border:1px solid white;
+	border-collapse: collapse;
+	padding:10px 20px 10px 20px;
+	text-align:center;
+	color:white;
+	font-family: Ubuntu;
+	font-size:23px;
+}
+
+thead td{
+	background-color: #017aa2;
+}
+
+tbody td{
+	background-color: #0397C8;
+}
+
+.innerTable{
+	padding:0px;
+}
+.innerTable td{
+
+	border:1px solid white;
+	border-collapse: collapse;
+	padding:10px 20px 10px 20px;
+	text-align:center;
+	color:white;
+	background-color: white !important;
+	color:black;
+	font-family: Ubuntu;
+	font-size:22px;
+}
