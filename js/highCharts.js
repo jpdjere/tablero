@@ -27,7 +27,18 @@ function drawCharts(dataset, dataset_var, chartTitle, yAxis, yColumns){
             enabled: false
     },
     exporting: { enabled: false },
-    credits: { enabled: false }
+    credits: { enabled: false },
+    plotOptions: {
+                area: {
+                    fillColor: {
+                        linearGradient: { x1: 0, y1: 1, x2: 0, y2: 0},
+                        stops: [
+                            [0, '#fff'],
+                            [1, '#ABCBEA']
+                        ]
+                    }
+                  }
+                }
   });
   Highcharts.chart('chart2',{
     xAxis: {
@@ -51,48 +62,5 @@ function drawCharts(dataset, dataset_var, chartTitle, yAxis, yColumns){
               text: ''
             }
   });
-};
-
-function drawActividad(){
-  Highcharts.chart('container1',{
-    series: series.actividad,
-    yAxis: {
-              title: {
-                enabled: true,
-                text: 'Índice base 2004 = 100'}
-        },
-    title: {
-              text: 'Actividad'
-            },
-    xAxis: {
-            type: 'datetime'
-        },
-    legend: {
-            enabled: false
-    },
-    exporting: { enabled: false },
-    credits: { enabled: false }
-  });
-  Highcharts.chart('container2',{
-    xAxis: {
-            type: 'datetime'
-        },
-    legend: {
-            enabled: false
-    },
-    series: series.actividad_var,
-    exporting: { enabled: false },
-    credits: { enabled: true,
-              text: "Ministerio de Producción y Desarrollo",
-              href: "http://www.produccion.gob.ar"},
-    yAxis: {
-            	title: {
-                enabled: true,
-                text: 'Variación anual [%]'}
-        },
-    title: {
-              enabled: false,
-              text: ''
-            },
-  });
+  drawUltimosDatos(dataset, dataset_var, chartTitle, yAxis, yColumns);
 };
