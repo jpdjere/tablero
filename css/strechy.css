@@ -3,8 +3,7 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+html, body, div, span, applet, object, iframe, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
@@ -62,7 +61,7 @@ html {
 body {
   font-size: 1.6rem;
   font-family: "Source Sans Pro", sans-serif;
-  color: #003c5d;
+  //color: #003c5d;
   background-color: #ffffff;
 }
 
@@ -99,7 +98,7 @@ Stretchy Nav style - common to:
   width: 60px;
   height: 60px;
   border-radius: 30px;
-  background: #7CB5EC;
+  background: #53C0E1;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   -webkit-transition: height 0.2s, box-shadow 0.2s;
   -moz-transition: height 0.2s, box-shadow 0.2s;
@@ -409,7 +408,7 @@ add-content navigation style
   -ms-transform: translateX(-50%);
   -o-transform: translateX(-50%);
   transform: translateX(-50%);
-  background-color: #9acd91;
+  background-color: #105064;
 }
 .cd-stretchy-nav.add-content .cd-nav-trigger span {
   background-color: transparent;
@@ -783,7 +782,7 @@ main content basic style
   position: relative;
   z-index: 1;
   min-height: 100vh;
-  padding: 100px 0;
+  padding: 120px 0 20px 0;
   background-color: #003c5d;
 }
 
