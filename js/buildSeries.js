@@ -7,7 +7,7 @@ dataReservas = [{
     valueDecimals: 2
 }];
 dataReservas_var = [{
-    name: "Variación anual",
+    name: "Variación anual [%]",
     data: series.reservas_var,
     type: "column",
     valueDecimals: 2,
@@ -21,7 +21,7 @@ dataExportaciones = [{
     valueDecimals: 2
 }];
 dataExportaciones_var = [{
-    name: "Variación anual",
+    name: "Variación anual [%]",
     data: series.exportaciones_var,
     type: "column",
     valueDecimals: 2,
@@ -36,7 +36,7 @@ dataImportaciones = [{
     tooltip: {valueSuffix: '%'}
 }];
 dataImportaciones_var = [{
-    name: "Variación anual",
+    name: "Variación anual [%]",
     data: series.importaciones_var,
     type: "column",
     valueDecimals: 2
@@ -49,7 +49,7 @@ dataSoja = [{
     valueDecimals: 2
 }];
 dataSoja_var = [{
-    name: "Variación anual",
+    name: "Variación anual [%]",
     data: series.precio_soja_var,
     type: "column",
     valueDecimals: 2,
@@ -63,7 +63,7 @@ dataConstruya = [{
     valueDecimals: 2
 }];
 dataConstruya_var = [{
-    name: "Variación anual",
+    name: "Variación anual [%]",
     data: series.indice_construya_var,
     type: "column",
     valueDecimals: 2,
@@ -78,7 +78,7 @@ dataActividad = [{
     valueDecimals: 2
 },
 {
-    name: "Actividad Desestacionalizada",
+    name: "Actividad Desest.",
     data: series.actividad_desest,
     type: "line",
     lineWidth: 1,
@@ -88,11 +88,11 @@ dataActividad = [{
 
 ];
 dataActividad_var = [{
-    name: "Variación anual",
+    name: "Variación anual [%]",
     data: series.actividad_var,
     type: "column",
     valueDecimals: 2,
-    tooltip: {valueSuffix: '%'}
+    tooltip: {valueSuffix: ''}
 }];
 
 //EXPvsIMP
@@ -111,7 +111,7 @@ dataBalance = [{
 
 ];
 dataBalance_var = [{
-    name: "Variación anual",
+    name: "Balance",
     data: series.balance,
     type: "column",
     valueDecimals: 2,
