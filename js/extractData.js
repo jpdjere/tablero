@@ -61,7 +61,7 @@ function draw(data, tabletop) {
   }
 
   buildSeries();
-  drawCharts(dataExportaciones, dataExportaciones_var, 'Exportaciones', 'Miles de USD', 'Variación anual [%]');
+  drawCharts(dataBalance, dataBalance_var, 'Exportaciones', 'Miles de USD', 'Variación anual [%]');
 
 }
 

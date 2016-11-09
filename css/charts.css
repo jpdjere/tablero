@@ -9,19 +9,85 @@ h1, h2, tspan, text, a {
 }
 #chartContainer {
     width: 40% !important;
-    margin: auto;
+    margin: 0 10px;
     box-shadow: 0 0 20px -5px #000;
     display: inline-block;
 }
 #ultimosDatosContainer {
   width: 30%;
   height: 600px;
-  margin: 0 20px;
+  margin: 0 10px;
   display: inline-block;
   background-color: #fff;
   box-shadow: 0 0 20px -5px #000;
-  vertical-align: baseline;
+  vertical-align: top;
+<<<<<<< HEAD
+=======
+  padding: 20px;
+>>>>>>> 0d962d615d75d88a20285958726b45bed38ac735
 }
+#ultimosDatosTable{
+  text-align: center;
+  width: 100%;
+  height: 50%;
+<<<<<<< HEAD
+}
+#ultimosDatosTable > tbody {
+  width: 100%;
+  box-shadow: 0 0 30px -10px;
+}
+#ultimosDatosTable > tbody > tr {
+  background-color: #ddd;
+  line-height: 20px;
+}
+#ultimosDatosTable > tbody > tr > td {
+
+}
+#ultimosDatosTable > tbody > tr:first-child {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 32px;
+  background-color: #7cb5ec !important;
+}
+
+#ultimosDatosTable > tbody > tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+#ultimosDatosTable > tbody > tr > td:last-child {
+  font-style: italic;
+  background-color: rgba(255, 255, 255, 0.4);
+  max-width: 100px;
+=======
+>>>>>>> 0d962d615d75d88a20285958726b45bed38ac735
+}
+#ultimosDatosTable > tbody {
+  width: 100%;
+  box-shadow: 0 0 30px -10px;
+}
+#ultimosDatosTable > tbody > tr {
+  background-color: #ddd;
+  line-height: 20px;
+  box-shadow: 0 0 20px -10px;
+}
+#ultimosDatosTable > tbody > tr > td {
+
+}
+#ultimosDatosTable > tbody > tr:first-child {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 32px;
+  background-color: #7cb5ec !important;
+}
+
+#ultimosDatosTable > tbody > tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+#ultimosDatosTable > tbody > tr > td:last-child {
+  font-style: italic;
+  background-color: rgba(255, 255, 255, 0.4);
+  max-width: 100px;
+}
+
 #pantalla {
     opacity: 0;
     position: absolute;
@@ -36,6 +102,9 @@ h1, h2, tspan, text, a {
     transition: ease all 0.5s;
     pointer-events: none;
 }
+.cd-main-content{
+  background-image: url(../img/background.png);
+}
 .pantalla-visible {
     //display: block !important;
     opacity: 0.8 !important;
@@ -45,6 +114,10 @@ h1, h2, tspan, text, a {
   min-width: 310px;
   width: 100%;
   background-color: #fafafa;
+}
+.highcharts-title {
+  font-size: 25px !important;
+  font-weight: bold;
 }
 #header{
   position: fixed;
@@ -56,6 +129,7 @@ h1, h2, tspan, text, a {
   z-index: 1;
   box-shadow: 0 0 20px -5px #000;
   display: inline-block;
+  user-select: none !important;
 }
 .logoMinisterio {
   height: 100%;
