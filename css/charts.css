@@ -20,8 +20,42 @@ h1, h2, tspan, text, a {
   display: inline-block;
   background-color: #fff;
   box-shadow: 0 0 20px -5px #000;
-  vertical-align: baseline;
+  vertical-align: top;
+  padding: 20px;
 }
+#ultimosDatosTable{
+  text-align: center;
+  width: 100%;
+  height: 50%;
+}
+#ultimosDatosTable > tbody {
+  width: 100%;
+  box-shadow: 0 0 30px -10px;
+}
+#ultimosDatosTable > tbody > tr {
+  background-color: #ddd;
+  line-height: 20px;
+  box-shadow: 0 0 20px -10px;
+}
+#ultimosDatosTable > tbody > tr > td {
+
+}
+#ultimosDatosTable > tbody > tr:first-child {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 32px;
+  background-color: #7cb5ec !important;
+}
+
+#ultimosDatosTable > tbody > tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+#ultimosDatosTable > tbody > tr > td:last-child {
+  font-style: italic;
+  background-color: rgba(255, 255, 255, 0.4);
+  max-width: 100px;
+}
+
 #pantalla {
     opacity: 0;
     position: absolute;
