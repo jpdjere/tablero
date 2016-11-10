@@ -19,22 +19,17 @@ h1, h2, tspan, text, a {
   margin: 0 10px;
   display: inline-block;
   background-color: #fff;
-  box-shadow: 0 0 20px -5px #000;
   vertical-align: top;
-<<<<<<< HEAD
-=======
   padding: 20px;
->>>>>>> 0d962d615d75d88a20285958726b45bed38ac735
 }
 #ultimosDatosTable{
   text-align: center;
   width: 100%;
   height: 50%;
-<<<<<<< HEAD
 }
 #ultimosDatosTable > tbody {
   width: 100%;
-  box-shadow: 0 0 30px -10px;
+  //box-shadow: 0 0 30px -10px;
 }
 #ultimosDatosTable > tbody > tr {
   background-color: #ddd;
@@ -57,17 +52,13 @@ h1, h2, tspan, text, a {
   font-style: italic;
   background-color: rgba(255, 255, 255, 0.4);
   max-width: 100px;
-=======
->>>>>>> 0d962d615d75d88a20285958726b45bed38ac735
 }
 #ultimosDatosTable > tbody {
   width: 100%;
-  box-shadow: 0 0 30px -10px;
 }
 #ultimosDatosTable > tbody > tr {
   background-color: #ddd;
   line-height: 20px;
-  box-shadow: 0 0 20px -10px;
 }
 #ultimosDatosTable > tbody > tr > td {
 
